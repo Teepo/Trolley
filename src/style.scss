@@ -1,137 +1,108 @@
-:root {
-    --bg: #0e0e10;
-    --panel: #18181c;
-    --accent: #c0392b;
-    --accent-soft: #8e2b20;
-    --text: #f1f1f1;
-    --muted: #aaa;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    background: var(--bg);
-    font-family: 'Georgia', serif;
-    color: var(--text);
-}
-
-header {
-    text-align: center;
-    padding: 40px 20px;
-    background: linear-gradient(180deg, #111, #000);
-    border-bottom: 1px solid #222;
-}
-
-h1 {
-    margin: 0;
+.app-title {
+    font-family: Arial, serif;
     letter-spacing: 2px;
-    font-size: 32px;
-}
-
-.search-bar {
-    margin-top: 20px;
-}
-
-input {
-    padding: 10px;
-    width: 280px;
-    background: #111;
-    border: 1px solid #333;
-    color: white;
-    border-radius: 4px;
-}
-
-input:focus {
-    outline: none;
-    border-color: var(--accent);
-}
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px 20px;
+    font-size: 1.5rem;
+    font-weight: 400;
 }
 
 .chapter-title {
-    margin-top: 50px;
-    font-size: 22px;
-    color: var(--muted);
-    border-left: 4px solid var(--accent);
-    padding-left: 10px;
+    font-size: 1.375rem;
+    color: rgb(var(--v-theme-secondary));
+    font-weight: 500;
+    margin: 2rem 0 1rem;
+    display: flex;
+    align-items: center;
+    font-family: Arial, serif;
 }
 
-.dilemma {
-    background: var(--panel);
-    padding: 25px;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid #222;
-    transition: 0.3s;
+.app-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.dilemma:hover {
-    border-color: var(--accent-soft);
+.dilemma-card {
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(192, 57, 43, 0.2);
+    transition: all 0.3s ease;
 }
 
-.dilemma h2 {
-    margin-top: 0;
+.dilemma-card:hover {
+    border-color: rgba(192, 57, 43, 0.5);
+}
+
+.dilemma-title {
+    font-family: Arial, serif;
+    background: rgba(192, 57, 43, 0.1);
+    border-bottom: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+.dilemma-key {
+    font-size: 0.875rem;
+    opacity: 0.7;
+    font-weight: 400;
+}
+
+.dilemma-name {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
 }
 
 .quote {
     font-style: italic;
-    color: var(--muted);
-    margin-bottom: 15px;
+    color: rgb(var(--v-theme-secondary));
+    display: flex;
+    align-items: center;
 }
 
-.intro, .leave {
-    margin: 15px 0;
+.intro-text,
+.main-text {
+    line-height: 1.7;
+    font-family: Arial, serif;
+}
+
+.choices-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.choice-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.choice-card:hover {
+    border-color: rgb(var(--v-theme-primary));
+    transform: translateY(-2px);
+}
+
+.choice-selected {
+    border-color: rgb(var(--v-theme-primary));
+    background: rgba(192, 57, 43, 0.05);
+}
+
+.choice-title {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.choice-text {
+    margin-bottom: 0.75rem;
     line-height: 1.6;
 }
 
-.choices {
-    display: flex;
-    gap: 20px;
-    margin-top: 20px;
+.choice-text:last-of-type {
+    margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-    .choices {
-        flex-direction: column;
-    }
-}
-
-.choice {
-    flex: 1;
-    padding: 15px;
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.choice:hover {
-    border-color: var(--accent);
-}
-
-.choice h3 {
-    margin-top: 0;
-}
-
-.final {
-    margin-top: 15px;
+.final-text {
     font-style: italic;
-    color: #bbb;
-    border-top: 1px solid #333;
-    padding-top: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #666;
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
 }

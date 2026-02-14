@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
-
 import vue from '@vitejs/plugin-vue';
-
+import vuetify from 'vite-plugin-vuetify';
 import basicSsl from '@vitejs/plugin-basic-ssl';
 
 const gitRepoName = 'trolley';
@@ -11,7 +10,11 @@ export default defineConfig(({ mode }) => ({
     build: {
         assetsInlineLimit: 0,
     },
-    plugins: [vue(), basicSsl()],
+    plugins: [
+        vue(),
+        vuetify({ autoImport: true }),
+        basicSsl()
+    ],
     resolve: {
         extensions: [
             '.js',

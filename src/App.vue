@@ -1,25 +1,48 @@
 <template>
-    <div>
-        <header>
-            <h1>Trolley Problem Inc.</h1>
-            <div class="search-bar">
-                <input type="text" v-model="searchTerm" placeholder="Rechercher un dilemme...">
-            </div>
-        </header>
+    <v-app>
+        <v-app-bar color="surface" elevation="1" class="app-bar">
+            <v-app-bar-title class="text-center">
+                <div class="app-title">Trolley Problem</div>
+            </v-app-bar-title>
+        </v-app-bar>
 
-        <div class="container">
-            <template v-for="chapter in chapters" :key="chapter">
-                <div class="chapter-title">Chapitre {{ chapter }}</div>
+        <v-main>
+            <v-container>
+                <v-row justify="center" class="mb-6">
+                    <v-col cols="12" sm="8" md="6">
+                        <v-text-field v-model="searchTerm" label="Rechercher un dilemme..."
+                            prepend-inner-icon="mdi-magnify" variant="outlined" density="comfortable" hide-details
+                            clearable></v-text-field>
+                    </v-col>
+                </v-row>
 
-                <DilemmaCard v-for="dilemma in getChapterDilemmas(chapter)" :key="dilemma.key"
-                    :dilemma-key="dilemma.key" :data="dilemma.data" />
-            </template>
-        </div>
+                <template v-for="chapter in chapters" :key="chapter">
+                    <v-row>
+                        <v-col cols="12">
+                            <div class="chapter-title">
+                                <v-icon class="mr-2" color="primary">mdi-book-open-variant</v-icon>
+                                Chapitre {{ chapter }}
+                            </div>
+                        </v-col>
+                    </v-row>
 
-        <footer>
-            Archive narrative interactive – Version Premium
-        </footer>
-    </div>
+                    <v-row>
+                        <v-col cols="12" v-for="dilemma in getChapterDilemmas(chapter)" :key="dilemma.key">
+                            <DilemmaCard :dilemma-key="dilemma.key" :data="dilemma.data" />
+                        </v-col>
+                    </v-row>
+                </template>
+            </v-container>
+
+            <v-footer class="text-center mt-10" color="transparent">
+                <v-col cols="12">
+                    <div class="text-secondary">
+                        Archive narrative interactive – Version Premium
+                    </div>
+                </v-col>
+            </v-footer>
+        </v-main>
+    </v-app>
 </template>
 
 <script setup>
@@ -44,7 +67,7 @@
     })
 
     const filteredDilemmas = computed(() => {
-        const term = searchTerm.value.toLowerCase()
+        const term = searchTerm.value?.toLowerCase() || ''
         if (!term) return sortedKeys.value
 
         return sortedKeys.value.filter(key => {
