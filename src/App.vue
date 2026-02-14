@@ -53,7 +53,7 @@
     const dilemmasData = ref({})
 
     onMounted(async () => {
-        const response = await fetch('/data.json')
+        const response = await fetch('data.json')
         const data = await response.json()
         dilemmasData.value = data.Rows
     })
