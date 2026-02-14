@@ -46,15 +46,16 @@
 </template>
 
 <script setup>
+
+    import data from './../data.json'
+
     import { ref, computed, onMounted } from 'vue'
     import DilemmaCard from './components/DilemmaCard.vue'
 
     const searchTerm = ref('')
     const dilemmasData = ref({})
 
-    onMounted(async () => {
-        const response = await fetch('data.json')
-        const data = await response.json()
+    onMounted(() => {
         dilemmasData.value = data.Rows
     })
 
