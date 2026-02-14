@@ -1,10 +1,5 @@
 <template>
     <v-app>
-        <v-app-bar color="surface" elevation="1" class="app-bar">
-            <v-app-bar-title class="text-center">
-                <div class="app-title">Trolley Problem</div>
-            </v-app-bar-title>
-        </v-app-bar>
 
         <v-main>
             <v-container>
